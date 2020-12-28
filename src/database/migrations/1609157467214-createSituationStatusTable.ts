@@ -1,23 +1,22 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class createCompanyTable1608644324964 implements MigrationInterface {
+export class createSituationStatusTable1609157467214 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-        
-        create table company (
+        create table situation_status (
             id serial not null,
-            code int not null,
             name varchar(255),
             
-            constraint pk_company primary key(id)
+            constraint pk_situation_status primary key(id)
+        
         )
         `)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-        DROP TABLE company
+        DROP TABLE situation_status
         `)
     }
 

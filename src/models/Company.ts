@@ -15,8 +15,8 @@ class Company {
     name: string
 
 
-    @OneToMany(type => CompanyContacts, companyContacts => companyContacts.company, { eager: true, cascade: true })
-    companyContacts: CompanyContacts[]
+    @OneToMany(() => CompanyContacts, companyContacts => companyContacts.company, { eager: true, cascade: true })
+    companyContacts: CompanyContacts[];
 }
 
 export default Company

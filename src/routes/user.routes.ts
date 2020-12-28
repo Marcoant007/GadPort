@@ -1,6 +1,8 @@
 import { request, response, Router } from 'express'
 import CreatedUserService from '../services/Users/CreatedUserService'
+import DeletedUserService from '../services/Users/DeletedUserService'
 import ListedUserService from '../services/Users/ListedUserService'
+import UpdatedUserService from '../services/Users/UpdatedUserService'
 //import DeletedUserService from '../services/Users/DeletedUserService'
 //import UpdatedUserService from '../services/Users/UpdatedUserService'
 
@@ -15,14 +17,43 @@ userRouter.get('/', async (request, response) => {
 
 userRouter.post('/', async (request, response) => {
     try {
-        const { body } = request.body
+        const { name, email, password } = request.body
         const createdUser = new CreatedUserService()
-        const users = await createdUser.execute(body)
+        const users = await createdUser.execute(
+            {
+                name: name,
+                email: email,
+                password: password
+            }
+        )
         return response.status(200).json(users)
     }
     catch (err) {
         return response.status(400).json({ error: err.message })
     }
 })
+
+userRouter.put('/:id', async (request, response) => {
+    const { id } = request.params
+    const { name, email, password } = request.body
+    const updatedUser = new UpdatedUserService();
+    const users = await updatedUser.execute({
+        id: Number(id),
+        name: name,
+        email: email,
+        password: password
+    })
+    return response.json(users)
+})
+
+
+
+userRouter.delete('/:id', async (request, response) => {
+    const { id } = request.params
+    const deletedUser = new DeletedUserService()
+    await deletedUser.execute({ id: +id })
+    return response.status(204).send({})
+})
+
 
 export default userRouter

@@ -1,15 +1,13 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class createTicketTable1608646285363 implements MigrationInterface {
+export class createTicketsTable1609157965762 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
         create table ticket (
             id serial not null,
             contact varchar(255) not null,
-            initial_date timestamptz not null,
-            final_date timestamptz not null,
-            tma time not null,
+            data date not null,
             fcr boolean not null,
             evaluation varchar(255),
             
@@ -30,8 +28,9 @@ export class createTicketTable1608646285363 implements MigrationInterface {
             constraint fk_ticket_type_ticket foreign key(type_ticket_id) references type_ticket(id),
             
             constraint fk_ticket_status foreign key(status_id) references status(id)
-        )
-        `)
+            
+            
+        )`)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

@@ -9,17 +9,17 @@ interface Request {
     password: string
 
 }
-
 class CreatedUserService {
     public async execute({ name, email, password }: Request): Promise<User> {
         const userRepository = getCustomRepository(UserRepository)
         const userCreate = userRepository.create({
-            name: name,
-            email: email,
-            password: password
+            name,
+            email,
+            password
         })
         await userRepository.save(userCreate)
         return userCreate
+
     }
 }
 

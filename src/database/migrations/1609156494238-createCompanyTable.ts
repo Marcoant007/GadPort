@@ -1,21 +1,23 @@
+import { query } from "express";
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class createTypeTickeTablet1608645397262 implements MigrationInterface {
+export class createCompanyTable1609156494238 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-        create table type_ticket (
+        create table company (
             id serial not null,
+            code int not null,
             name varchar(255),
             
-            constraint pk_type_ticket primary key(id)
+            constraint pk_company primary key(id)
         )
         `)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-        DROP TABLE type_ticket
+        DROP TABLE company
         `)
     }
 

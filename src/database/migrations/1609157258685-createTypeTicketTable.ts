@@ -1,21 +1,21 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class createUserTable1608640858404 implements MigrationInterface {
+export class createTypeTicketTable1609157258685 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-        create table public.user  (
+        create table type_ticket (
             id serial not null,
             name varchar(255),
-            email varchar(255),
-            password varchar(255),
-            constraint pk_user primary key (id)
-        ) `)
+            
+            constraint pk_type_ticket primary key(id)
+        )
+        `)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-        DROP TABLE user
+        DROP TABLE type_ticket
         `)
     }
 

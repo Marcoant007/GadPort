@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class createCompanyContactsTable1608644503145 implements MigrationInterface {
+export class createCompanyContactsTable1609156746296 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -10,18 +10,19 @@ export class createCompanyContactsTable1608644503145 implements MigrationInterfa
             office varchar(255) not null,
             email varchar(255) not null,
             telephone varchar(255) not null,
-            company_id int not null,
+            companycontacts_id int not null,
             
             constraint pk_company_contacts primary key(id),
-            constraint fk_company_contacts_company foreign key (company_id) references company(id)
+            constraint fk_company_contacts_company foreign key (companycontacts_id) references company(id)
         )
         `)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-    DROP TABLE company_contacts
-    `)
+       DROP TABLE company_contacts
+        )
+        `)
     }
 
 }
