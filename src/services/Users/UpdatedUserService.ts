@@ -13,13 +13,13 @@ interface Request {
 class UpdatedUserService {
     public async execute({ id, name, email, password }: Request) {
         const usersrepository = getCustomRepository(UserRepository)
-        const usersupdated = await usersrepository.save({
+        const usersUpdated = await usersrepository.save({
             id,
             name,
             email,
             password
         })
-        return usersupdated
+        return usersUpdated
     }
 }
 

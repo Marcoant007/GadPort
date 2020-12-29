@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColum
 import CompanyContacts from './CompanyContact'
 import Ticket from './Ticket'
 
-Entity('company')
+@Entity('company')
 class Company {
 
     @PrimaryGeneratedColumn()

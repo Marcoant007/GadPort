@@ -2,6 +2,7 @@ import { request, response, Router } from 'express'
 import { Index } from 'typeorm';
 import CreatedCompanyService from '../services/Companys/CreatedCompanyService';
 import DeletedCompanyService from '../services/Companys/DeletedCompanyService';
+import FindCompanyByIdService from '../services/Companys/FindCompanyByIdService';
 import ListedCompanyService from '../services/Companys/ListedCompanyService'
 import UpdatedCompanyService from '../services/Companys/UpdatedCompanyService';
 
@@ -15,6 +16,13 @@ companyRouter.get('/', async (request, response) => {
     return response.json(company)
 })
 
+
+companyRouter.get('/:id', async (request, response) => {
+    const { id } = request.params
+    const findById = new FindCompanyByIdService
+    const company = await findById.execute(+id)
+    return response.json(company)
+})
 
 companyRouter.post('/', async (request, response) => {
     try {

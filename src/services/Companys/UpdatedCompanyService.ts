@@ -12,9 +12,13 @@ interface Request {
 }
 
 class UpdatedCompanyService {
-    public async execute(company: Company) {
+    public async execute({ id, code, name }: Request) {
         const companyRepository = getCustomRepository(CompanyRepository)
-        const companyUpdated = await companyRepository.save(company)
+        const companyUpdated = await companyRepository.save({
+            id,
+            code,
+            name
+        })
         return companyUpdated
     }
 }

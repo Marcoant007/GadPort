@@ -21,11 +21,11 @@ class CompanyContacts {
     @Column()
     telephone: string
 
-    @Column('int4')
+    @Column()
     companycontacts_id: number
 
 
-    @ManyToOne(() => CompanyContacts, { eager: true })
+    @ManyToOne(() => Company, company => company.companyContacts)
     @JoinColumn({ name: "companycontacts_id" })
     company: Company
 
