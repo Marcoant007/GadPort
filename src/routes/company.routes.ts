@@ -43,9 +43,13 @@ companyRouter.post('/', async (request, response) => {
 
 companyRouter.put('/:id', async (request, response) => {
     const { id } = request.params
-    const body = request.body
+    const { name, code } = request.body
     const updatedCompany = new UpdatedCompanyService()
-    const company = await updatedCompany.execute(body)
+    const company = await updatedCompany.execute({
+        id: Number(id),
+        name: name,
+        code: code
+    })
     return response.json(company)
 })
 

@@ -7,9 +7,7 @@ export class createSituationStatusTable1609157467214 implements MigrationInterfa
         create table situation_status (
             id serial not null,
             name varchar(255),
-            
             constraint pk_situation_status primary key(id)
-        
         )
         `)
     }

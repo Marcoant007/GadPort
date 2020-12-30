@@ -5,7 +5,6 @@ import CompanyContactRepository from '../../repositories/CompanyContactsReposito
 import CompanyRepository from '../../repositories/CompanyContactsRepository'
 
 interface Request {
-    id: number,
     name: string,
     office: string,
     email: string,

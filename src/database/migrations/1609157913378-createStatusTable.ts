@@ -10,7 +10,7 @@ export class createStatusTable1609157913378 implements MigrationInterface {
             situation_status_id int not null,
             
             constraint pk_status primary key(id),
-            constraint fk_situation_status foreign key (situation_status_id) references situation_status(id)
+            constraint fk_situation_status foreign key (situation_status_id) references situation_status(id)  match simple on update no action on delete no action
         
         )`)
     }

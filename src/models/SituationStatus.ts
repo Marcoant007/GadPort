@@ -12,6 +12,10 @@ class SituationStatus {
     @Column()
     name: string
 
+
+    @OneToMany(() => Status, status => status.situationStatus)
+    status: Status;
+
 }
 
 export default SituationStatus

@@ -1,7 +1,6 @@
 import { getCustomRepository } from 'typeorm'
-import Company from '../../models/Company'
 import CompanyRepository from '../../repositories/CompanyRepository'
-import UpdatedUserService from '../Users/UpdatedUserService'
+
 
 
 
