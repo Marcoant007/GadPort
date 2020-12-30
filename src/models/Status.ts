@@ -12,6 +12,9 @@ class Status {
     @Column()
     name: string
 
+    @Column()
+    situation_status_id: number
+
     @ManyToOne(() => SituationStatus, situationStatus => situationStatus.status, { eager: true, cascade: true })
     @JoinColumn({ name: "situation_status_id" })
     situationStatus: SituationStatus

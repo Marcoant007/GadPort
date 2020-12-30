@@ -6,6 +6,7 @@ import StatusRepository from "../../repositories/StatusRepository";
 
 
 interface Request {
+
     name: string,
     situation_status_id: number
 

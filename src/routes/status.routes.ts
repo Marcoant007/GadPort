@@ -1,5 +1,6 @@
 import { request, response, Router } from "express";
 import CreatedStatusService from "../services/Status/CreatedStatusService";
+import DeletedStatusService from "../services/Status/DeletedStatusService";
 import ListedStatusService from "../services/Status/ListedStatusService";
 
 
@@ -34,6 +35,14 @@ statusRouter.post('/', async (request, response) => {
 
     }
 
+})
+
+
+statusRouter.delete('/:id', async (request, response) => {
+    const { id } = request.params
+    const deletedStatus = new DeletedStatusService()
+    await deletedStatus.execute({ id: +id })
+    return response.status(204).send({})
 })
 
 
