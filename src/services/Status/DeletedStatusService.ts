@@ -1,9 +1,6 @@
 import { getCustomRepository } from "typeorm";
 import StatusRepository from "../../repositories/StatusRepository";
 
-
-
-
 interface Request {
     id: number
 }
