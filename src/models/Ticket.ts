@@ -10,6 +10,9 @@ import User from './User'
 
 @Entity('ticket')
 class Ticket {
+    findOne(arg0: { where: { id: number } }) {
+        throw new Error("Method not implemented.")
+    }
     @PrimaryGeneratedColumn()
     id: number
 
@@ -27,6 +30,9 @@ class Ticket {
 
     @Column()
     evaluation: string
+
+    @Column()
+    problem: string
 
     @Column()
     user_id: number

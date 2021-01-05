@@ -11,6 +11,7 @@ interface Request {
     final_date: Date
     fcr: boolean
     evaluation: string
+    problem: string
     company_id: number
     user_id: number
     channel_communication_id: number
@@ -20,7 +21,7 @@ interface Request {
 }
 
 class CreatedTicketService {
-    public async execute({ contact, initial_date, final_date, fcr, evaluation, company_id, user_id, channel_communication_id, type_ticket_id, status_id }: Request): Promise<Ticket> {
+    public async execute({ contact, initial_date, final_date, fcr, evaluation, problem, company_id, user_id, channel_communication_id, type_ticket_id, status_id }: Request): Promise<Ticket> {
         const ticketsRepository = getCustomRepository(TicketsRepository)
         const ticketsCreated = ticketsRepository.create({
             contact: contact,
@@ -28,6 +29,7 @@ class CreatedTicketService {
             final_date: final_date,
             fcr: fcr,
             evaluation: evaluation,
+            problem: problem,
             company_id: company_id,
             user_id: user_id,
             channel_communication_id: channel_communication_id,

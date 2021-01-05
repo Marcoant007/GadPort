@@ -11,6 +11,7 @@ export class createTicketsTable1609157965762 implements MigrationInterface {
             final_date timestamptz not null DEFAULT CURRENT_TIMESTAMP,
             fcr boolean not null,
             evaluation varchar(255),
+            problem varchar(255),
             company_id int not null,
             user_id int not null,
             channel_communication_id int not null,
