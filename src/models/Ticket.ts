@@ -39,7 +39,7 @@ class Ticket {
     @Column()
     company_id: number
 
-    @ManyToOne(type => CompanyContacts, { eager: true })
+    @ManyToOne(type => Company, { eager: true })
     @JoinColumn({ name: "company_id" })
     company: Company
 

@@ -7,10 +7,10 @@ export class createTicketsTable1609157965762 implements MigrationInterface {
         create table ticket (
             id serial not null,
             contact varchar(255) not null,
-            data date not null,
+            initial_date timestamptz not null DEFAULT CURRENT_TIMESTAMP,
+            final_date timestamptz not null DEFAULT CURRENT_TIMESTAMP,
             fcr boolean not null,
             evaluation varchar(255),
-            
             company_id int not null,
             user_id int not null,
             channel_communication_id int not null,
