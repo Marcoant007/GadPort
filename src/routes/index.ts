@@ -7,6 +7,7 @@ import situationStatusRouter from './situationstatus.routes'
 import statusRouter from './status.routes'
 import typeRouter from './typeticket.routes'
 import ticketsRouter from './tickets.routes'
+import commentRouter from './comment.routes'
 
 const routes = Router()
 routes.use('/user', userRouter)
@@ -17,6 +18,7 @@ routes.use('/situationstatus', situationStatusRouter)
 routes.use('/status', statusRouter)
 routes.use('/typetickets', typeRouter)
 routes.use('/tickets', ticketsRouter)
+routes.use('/comments', commentRouter)
 
 
 export default routes;

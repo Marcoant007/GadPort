@@ -12,7 +12,7 @@ export class createComments1610142679350 implements MigrationInterface {
                 autor_comentario varchar(255),
                 
                 constraint pk_comments primary key(id),
-                constraint fk_comments_tickets foreign  key(ticket_id) references ticket(id)
+                constraint fk_comments_ticket foreign key (ticket_id) references ticket(id)
         )
         `)
     }

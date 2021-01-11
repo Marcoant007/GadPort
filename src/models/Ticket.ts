@@ -32,9 +32,6 @@ class Ticket {
     evaluation: string
 
     @Column()
-    problem: string
-
-    @Column()
     user_id: number
 
     @ManyToOne(type => User, { eager: true })

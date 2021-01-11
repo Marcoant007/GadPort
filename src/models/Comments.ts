@@ -3,7 +3,7 @@ import Ticket from "./Ticket";
 
 
 
-@Entity('comment')
+@Entity('comments')
 class Comments {
 
     @PrimaryGeneratedColumn()
@@ -20,7 +20,6 @@ class Comments {
 
     @Column()
     autor_comentario: string
-
 
     @ManyToOne(type => Ticket, { eager: true })
     @JoinColumn({ name: "ticket_id" })
